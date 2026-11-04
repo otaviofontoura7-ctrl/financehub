@@ -1,0 +1,10 @@
+const router = require('express').Router();
+const rateLimit = require('express-rate-limit');
+const controller = require('../controllers/authController');
+const { autenticar, autorizar } = require('../middlewares/auth');
+const loginLimiter = rateLimit({ windowMs: 15*60*1000, limit: 15, standardHeaders: 'draft-7', legacyHeaders: false, message: { mensagem: 'Muitas tentativas. Tente novamente mais tarde.' } });
+router.post('/login', loginLimiter, controller.entrar);
+router.get('/me', autenticar, controller.perfil);
+router.post('/register', autenticar, autorizar('administrador'), controller.registrar);
+router.get('/usuarios', autenticar, autorizar('administrador'), controller.listar);
+module.exports = router;
