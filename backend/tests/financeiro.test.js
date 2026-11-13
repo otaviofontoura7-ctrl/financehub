@@ -1,0 +1,14 @@
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const {validarMovimento,intervaloValido,podeAlterar,podeExcluir}=require('../services/financeiro');
+const receita={descricao:'Venda no Pix',valor:'199.90',data_recebimento:'2026-11-12',forma_pagamento:'pix',categoria_id:1};
+const despesa={descricao:'Aluguel comercial',valor:'1200.00',data_vencimento:'2026-11-15',status:'pendente',categoria_id:2};
+test('aceita receita válida',()=>assert.equal(validarMovimento('receita',receita),null));
+test('rejeita receita com valor negativo',()=>assert.match(validarMovimento('receita',{...receita,valor:'-20'}),/Valor/));
+test('rejeita método de recebimento inválido',()=>assert.match(validarMovimento('receita',{...receita,forma_pagamento:'bitcoin'}),/forma/));
+test('aceita despesa pendente sem pagamento',()=>assert.equal(validarMovimento('despesa',despesa),null));
+test('rejeita despesa paga sem data de pagamento',()=>assert.match(validarMovimento('despesa',{...despesa,status:'paga'}),/data/));
+test('rejeita data inválida',()=>assert.match(validarMovimento('receita',{...receita,data_recebimento:'2026-02-30'}),/Data/));
+test('valida intervalo de datas',()=>{assert.equal(intervaloValido('2026-11-01','2026-11-30'),true);assert.equal(intervaloValido('2026-11-30','2026-11-01'),false)});
+test('funcionário só pode alterar próprio registro',()=>{assert.equal(podeAlterar({id:2,perfil:'funcionario'},2),true);assert.equal(podeAlterar({id:2,perfil:'funcionario'},3),false)});
+test('somente administrador pode excluir',()=>{assert.equal(podeExcluir({perfil:'administrador'}),true);assert.equal(podeExcluir({perfil:'funcionario'}),false)});
