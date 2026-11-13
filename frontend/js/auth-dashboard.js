@@ -34,6 +34,8 @@ async function listarUsuarios() {
     } else {
       document.getElementById('usuarios').remove();
     }
+    window.financehubUser = usuario;
+    document.dispatchEvent(new CustomEvent('financehub:ready',{detail:usuario}));
     document.body.style.visibility='visible';
   } catch(e) { sessionStorage.removeItem('financehub_jwt');window.location.replace('/'); }
 })();
