@@ -10,7 +10,7 @@ function validarMovimento(tipo, obj) {
   if (!obj || typeof obj !== 'object') return 'Dados inválidos.';
   if (typeof obj.descricao !== 'string' || obj.descricao.trim().length < 3 || obj.descricao.trim().length > 255) return 'Descrição deve ter entre 3 e 255 caracteres.';
   if (!valorValido(obj.valor)) return 'Valor inválido. Use um valor positivo com até duas casas decimais.';
-  if (!Number.isSafeInteger(Number(obj.categoria_id)) || Number(obj.categoria_id) <= 0) return 'Selecione uma categoria válida.';
+  if (!/^\d+$/.test(String(obj.categoria_id)) || !Number.isSafeInteger(Number(obj.categoria_id)) || Number(obj.categoria_id) <= 0) return 'Selecione uma categoria válida.';
   if (obj.observacao != null && (typeof obj.observacao !== 'string' || obj.observacao.length > 2000)) return 'Observação deve ter até 2000 caracteres.';
   if (tipo === 'receita') {
     if (!dataValida(obj.data_recebimento)) return 'Data de recebimento inválida.';
