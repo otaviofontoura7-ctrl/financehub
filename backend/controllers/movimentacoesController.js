@@ -14,7 +14,10 @@ function criarController(tipo){
    if(filtro&&!intervaloValido(inicio,fim))return fail(res,'Período inválido.');
    let sql=`SELECT ${SELECT[tipo]} FROM ${tabela} r JOIN categorias c ON c.id=r.categoria_id`;
    const args=[];
-   if(filtro){sql+=` WHERE r.${data} BETWEEN ? AND ?`;args.push(inicio,fim);}
+   const restricoes=[];
+   if(filtro){restricoes.push(`r.${data} BETWEEN ? AND ?`);args.push(inicio,fim);}
+   if(req.usuario.perfil !== 'administrador'){restricoes.push('r.usuario_id = ?');args.push(req.usuario.id);}
+   if(restricoes.length)sql+=' WHERE '+restricoes.join(' AND ');
    sql+=` ORDER BY r.${data} DESC, r.id DESC LIMIT 500`;
    const [registros]=await pool.execute(sql,args);res.json({registros});
   }catch(e){next(e)}},
