@@ -23,3 +23,16 @@ Este roteiro requer Node.js e MySQL Server instalados e configurados. Os testes 
 - [ ] Indicadores incluem somente despesas pagas no período.
 ## Limite da verificação
 Foram aprovados 12 testes automatizados unitários/de regras de negócio. Eles não substituem os testes integrados acima.
+
+
+## Validação final — Entrega 4 (a executar com MySQL real)
+- [ ] MySQL Server está rodando; ambos os scripts SQL executam sem erro.
+- [ ] npm install, npm test, npm start, login admin e funcionário funcionam.
+- [ ] Funcionário só vê os próprios lançamentos ao chamar GET /api/receitas e /api/despesas.
+- [ ] Funcionário recebe 403 ao editar registro de outro usuário ou excluir qualquer registro.
+- [ ] Painel não conta despesas pendentes como já pagas.
+- [ ] GET /api/projecao retorna estimativa de 30 dias com metodologia.
+- [ ] Funcionário recebe 403 ao acessar GET /api/projecao.
+- [ ] No MySQL, SELECT confirma inserções/edições/exclusões feitas no navegador.
+- [ ] Código da Entrega 4 e README aparecem no GitHub, no mesmo repositório.
+**Nota:** esta lista não significa execução comprovada. Preencha apenas após testar na máquina de apresentação.
