@@ -1,8 +1,8 @@
 {
   "name": "financehub",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "private": true,
-  "description": "FinanceHub - Entregas 1, 2 e 3: JWT, MySQL e CRUD financeiro",
+  "description": "FinanceHub - Entregas 1, 2, 3 e 4: JWT, MySQL e CRUD financeiro",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
