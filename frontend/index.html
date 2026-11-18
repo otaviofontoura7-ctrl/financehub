@@ -1,1 +1,42 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FinanceHub | Acesso</title><link rel="stylesheet" href="/css/style.css"></head><body class="login-body"><main class="login-wrap"><section class="login-intro"><div class="brand large"><span class="brand-icon">◇</span> Finance<span>Hub</span></div><p class="eyebrow">GESTÃO FINANCEIRA INTELIGENTE</p><h1>Mais clareza para decidir. Mais controle para crescer.</h1><p>Visualize receitas, despesas, impostos, formas de pagamento, fluxo de caixa e projeções em um único lugar.</p><div class="login-metrics"><div><b>01</b><small>Empresa</small></div><div><b>360°</b><small>Visão financeira</small></div><div><b>24/7</b><small>Planejamento</small></div></div></section><section class="login-panel"><div class="login-card"><div class="tag">PROTÓTIPO • ENTREGA 1</div><h2>Bem-vindo ao FinanceHub</h2><p>Conheça a proposta do sistema financeiro empresarial.</p><label for="email">E-mail</label><input id="email" type="email" placeholder="seuemail@empresa.com" autocomplete="off"><label for="password">Senha</label><input id="password" type="password" placeholder="••••••••" autocomplete="off"><p class="notice">A autenticação real será implementada na Entrega 2. Este formulário é apenas uma prévia visual e não valida credenciais.</p><a class="btn primary full" href="/dashboard">Entrar na demonstração <span>→</span></a><div class="login-foot">Login integrado ao banco MySQL — configure o servidor para acessar</div></div></section></main></body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="FinanceHub: controle de receitas, despesas e fluxo de caixa empresarial.">
+  <title>FinanceHub | Acesso</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="login-body">
+  <main class="login-wrap">
+    <section class="login-intro">
+      <div class="brand large"><span class="brand-icon">◇</span> Finance<span>Hub</span></div>
+      <p class="eyebrow">GESTÃO FINANCEIRA EMPRESARIAL</p>
+      <h1>Mais clareza para decidir. Mais controle para crescer.</h1>
+      <p>Centralize receitas, despesas, formas de recebimento, fluxo de caixa e projeções em um único sistema.</p>
+      <div class="login-metrics">
+        <div><b>01</b><small>Empresa</small></div>
+        <div><b>02</b><small>Perfis de acesso</small></div>
+        <div><b>JWT</b><small>Autenticação</small></div>
+      </div>
+    </section>
+    <section class="login-panel" aria-labelledby="loginHeading">
+      <div class="login-card">
+        <div class="tag">FINANCEHUB · SISTEMA INTEGRADO</div>
+        <h2 id="loginHeading">Acessar minha conta</h2>
+        <p>Entre com as credenciais cadastradas para consultar e gerenciar os lançamentos autorizados.</p>
+        <form id="loginForm">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" placeholder="seuemail@empresa.com" autocomplete="username" required maxlength="150">
+          <label for="password">Senha</label>
+          <input id="password" name="senha" type="password" placeholder="Sua senha" autocomplete="current-password" required>
+          <p id="loginError" class="feedback" role="alert" aria-live="polite" hidden></p>
+          <button class="btn primary full" type="submit">Entrar no FinanceHub <span>→</span></button>
+        </form>
+        <div class="login-foot">Acesso protegido por autenticação JWT e permissões no servidor.</div>
+      </div>
+    </section>
+  </main>
+  <script src="/js/login.js" defer></script>
+</body>
+</html>
