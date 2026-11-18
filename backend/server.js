@@ -7,6 +7,7 @@ const authRoutes = require('./routes/authRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const movimentacoesRoutes = require('./routes/movimentacoesRoutes');
 const indicadoresRoutes = require('./routes/indicadoresRoutes');
+const projecaoRoutes = require('./routes/projecaoRoutes');
 if (!process.env.JWT_SECRET || process.env.JWT_SECRET.length < 32 || process.env.JWT_SECRET.startsWith('SUBSTITUA')) {
   console.error('Configure JWT_SECRET com pelo menos 32 caracteres aleatórios no arquivo .env.');
   process.exit(1);
@@ -20,10 +21,11 @@ app.use('/css', express.static(path.join(frontend,'css')));
 app.use('/js', express.static(path.join(frontend,'js')));
 app.get('/', (req,res) => res.sendFile(path.join(frontend, 'index.html')));
 app.get('/dashboard', (req,res) => res.sendFile(path.join(frontend,'dashboard.html')));
-app.get('/api/health', (req,res) => res.json({ status: 'ok', etapa: 3 }));
+app.get('/api/health', (req,res) => res.json({ status: 'ok', etapa: 4 }));
 app.use('/api/auth', authRoutes);
 app.use('/api', movimentacoesRoutes);
 app.use('/api', indicadoresRoutes);
+app.use('/api', projecaoRoutes);
 app.use('/api', dashboardRoutes);
 app.use((req,res) => res.status(404).json({ mensagem: 'Rota não encontrada.' }));
 app.use((erro, req, res, next) => {
@@ -34,7 +36,7 @@ const porta = Number(process.env.PORT || 3000);
 async function iniciar() {
   try {
     await pool.query('SELECT 1');
-    app.listen(porta, () => console.log(`FinanceHub - Entrega 3 em http://localhost:${porta}`));
+    app.listen(porta, () => console.log(`FinanceHub - Entrega 4 em http://localhost:${porta}`));
   } catch (erro) {
     console.error('Não foi possível conectar ao MySQL:', erro.message);
     process.exit(1);
