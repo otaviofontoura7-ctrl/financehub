@@ -30,3 +30,23 @@ el('applyDates').addEventListener('click',loadSummary);
 el('dateStart').value=firstDay();el('dateEnd').value=today();
 document.addEventListener('financehub:ready',async event=>{state.perfil=event.detail.perfil;if(state.perfil!=='administrador'){el('summaryContent').hidden=true;el('summaryAccessNote').hidden=false;}
 try{await loadCategories();await Promise.all([loadData('receita'),loadData('despesa')]);await loadSummary()}catch(e){console.error(e)}showPage(location.hash.slice(1));});
+
+
+async function loadForecast(){
+  const root=document.getElementById('forecastContent');
+  if(!root || state.perfil!=='administrador')return;
+  try {
+    const d=await api('/api/projecao');
+    root.replaceChildren();
+    const summary=document.createElement('div');summary.className='stats';
+    for(const [label,value] of [['Receita estimada (próx. 30 dias)',d.receitaEstimada],['Contas a vencer (próx. 30 dias)',d.despesasPrevistas],['Saldo estimado',d.saldoEstimado]]){
+      const article=document.createElement('article');article.className='stat';
+      const t=document.createElement('div');t.className='stat-head';t.textContent=label;
+      const n=document.createElement('strong');n.textContent=money(value);
+      article.append(t,n);summary.append(article);
+    }
+    const explanation=document.createElement('p');explanation.className='note';explanation.textContent=d.metodologia;
+    root.append(summary,explanation);
+  }catch(err){root.textContent='Erro ao consultar projeção: '+err.message;}
+}
+document.addEventListener('financehub:ready', loadForecast);
