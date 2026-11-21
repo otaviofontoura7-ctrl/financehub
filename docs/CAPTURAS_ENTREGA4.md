@@ -1,6 +1,6 @@
 # FinanceHub — Evidências para apresentação da Entrega 4
 
-Este arquivo organiza as capturas reais do sistema. Os prints **ainda não foram enviados para este repositório**; esta página é um guia, não uma afirmação de que as imagens estão publicadas.
+Este arquivo organiza as capturas reais do sistema. **Arquivos publicados e conferidos em 21/11/2026:** os slides finais em PDF e PPTX e cinco capturas diferentes do sistema constam neste repositório. Algumas telas (como despesas, impostos e fluxo de caixa) não têm captura específica nesta entrega; estão disponíveis na aplicação para a demonstração presencial.
 
 ## Capturas recomendadas
 
@@ -15,12 +15,17 @@ Este arquivo organiza as capturas reais do sistema. Os prints **ainda não foram
 9. **Testes automatizados:** saída do terminal mostrando resultados, sem dados sensíveis.
 10. **GitHub:** estrutura do projeto, SQL, README e histórico de commits.
 
-## Organização sugerida
+## Arquivos efetivamente publicados
 
-- Coloque capturas revisadas em `docs/evidencias/`.
-- Coloque a apresentação final em `docs/apresentacao-financehub-entrega4.pdf`.
-- Use nomes descritivos, por exemplo `01-login.png`, `02-visao-geral.png` etc.
-- Identifique os lançamentos financeiros como **dados de demonstração**, caso sejam fictícios.
+- [Apresentação completa em PDF](apresentacao-financehub-entrega4.pdf)
+- [Apresentação editável em PowerPoint](apresentacao-financehub-entrega4.pptx)
+- [01 — Tela de login](evidencias/01-login.png)
+- [02 — Visão geral como administrador](evidencias/02-visao-geral-admin.png)
+- [03 — Tela de receitas](evidencias/03-receitas.png)
+- [04 — Projeção financeira de 30 dias](evidencias/04-projecao.png)
+- [05 — Visão geral com perfil funcionário](evidencias/05-visao-geral-funcionario.png)
+
+As telas capturadas não possuem movimentações lançadas; indicadores de R$ 0,00 representam ausência de dados no período mostrado, não faturamento validado. Não há prints de uma execução completa de todas as operações CRUD.
 
 ## Proteção de dados
 
