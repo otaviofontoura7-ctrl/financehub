@@ -72,9 +72,9 @@ O comando `npm run criar-admin` deve ser executado apenas se ainda não existir 
 | GET | /api/indicadores | Administrador |
 
 ## Testes, limites e histórico
-Os testes automatizados disponíveis foram executados com **12 aprovações e nenhuma falha**. Eles verificam regras/validações isoladas. **Testes integrados de ponta a ponta com MySQL ainda precisam ser executados.** Consulte `docs/TESTES_MANUAIS.md`.
+Na execução local informada para a preparação da Entrega 4, **19 testes automatizados foram aprovados, sem falhas**. Eles não substituem todos os testes de integração e autorização da API com MySQL. O sistema também foi iniciado no Windows com MySQL e o login de administrador foi realizado; o acesso à tela de usuários foi confirmado. As demais operações devem ser verificadas pelo roteiro de testes manuais. Consulte `docs/TESTES_MANUAIS.md`.
 
-Histórico de commits da Entrega 1 e da Entrega 2 preservado. A Entrega 3 deve ser adicionada neste mesmo repositório com seu próprio commit.
+As Entregas 1, 2, 3 e 4 estão organizadas neste mesmo repositório. Consulte o histórico de commits para acompanhar a evolução.
 
 ## Entrega 4 — Consolidação e apresentação final
 
@@ -98,4 +98,8 @@ Histórico de commits da Entrega 1 e da Entrega 2 preservado. A Entrega 3 deve s
 4. Dentro de `backend`, execute `npm install`, `npm test`, `npm run criar-admin` (só na primeira configuração sem administrador) e `npm start`.
 5. Abra `http://localhost:3000` e teste as operações com administrador e funcionário, incluindo permissões pela API.
 
-**Validação:** foram aprovados 15 testes automatizados de regras/validação no ambiente de preparação da versão final. **Não houve validação completa do sistema com o MySQL do estudante neste computador.** O funcionamento ponta a ponta deve ser testado antes da apresentação. Evite publicar senhas, `.env`, tokens e `node_modules`.
+**Validação atualizada em 21/11/2026:** o estudante informou **19 testes automatizados aprovados, sem falhas**, e demonstrou em captura de tela o FinanceHub conectado ao MySQL, com sessão de administrador e listagem de usuários. Isso comprova o funcionamento das etapas observadas, mas não constitui auditoria completa de todos os fluxos ou permissões. Para os demais testes, consulte `docs/TESTES_MANUAIS.md`. Evite publicar senhas, `.env`, tokens e `node_modules`.
+
+## Evidências da apresentação
+
+Veja `docs/CAPTURAS_ENTREGA4.md` para a lista de telas a documentar e as orientações de segurança. As capturas e o PDF dos slides podem ser adicionados à pasta `docs/evidencias/` após revisão para remover credenciais e informações pessoais desnecessárias.
