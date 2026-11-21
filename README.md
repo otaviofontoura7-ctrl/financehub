@@ -102,4 +102,4 @@ As Entregas 1, 2, 3 e 4 estão organizadas neste mesmo repositório. Consulte o 
 
 ## Evidências da apresentação
 
-Veja `docs/CAPTURAS_ENTREGA4.md` para a lista de telas a documentar e as orientações de segurança. As capturas e o PDF dos slides podem ser adicionados à pasta `docs/evidencias/` após revisão para remover credenciais e informações pessoais desnecessárias.
+A apresentação final foi publicada em **[PDF](docs/apresentacao-financehub-entrega4.pdf)** e **[PowerPoint editável](docs/apresentacao-financehub-entrega4.pptx)**. Cinco capturas reais do sistema estão em [`docs/evidencias/`](docs/evidencias/). Veja [`docs/CAPTURAS_ENTREGA4.md`](docs/CAPTURAS_ENTREGA4.md) para os links e os limites das evidências. Os prints comprovam as telas mostradas, mas não substituem uma demonstração integral de CRUD e permissões pela API.
